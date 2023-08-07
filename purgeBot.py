@@ -5,7 +5,7 @@ import subprocess
 import asyncio
 import sys
 
-TOKEN="<MYTOKEN>"
+TOKEN="<TOKENGOESHERE>"
 
 client = commands.Bot(command_prefix="+", intents=discord.Intents.all(), status=discord.Status.online,
                      activity=discord.Activity(type=discord.ActivityType.listening, name="BEEP BOOP"))
