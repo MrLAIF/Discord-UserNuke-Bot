@@ -5,7 +5,7 @@ import subprocess
 import asyncio
 import sys
 
-TOKEN="MTEzNjc5NTI3MTAwNzgzNDE3Mw.GGck8Q.onbbgw7waySgWvnaYAHMmGtmr1txZ9eJ2UWNAk"
+TOKEN="<MYTOKEN>"
 
 client = commands.Bot(command_prefix="+", intents=discord.Intents.all(), status=discord.Status.online,
                      activity=discord.Activity(type=discord.ActivityType.listening, name="BEEP BOOP"))
@@ -28,49 +28,6 @@ async def restart(ctx):
     await ctx.send(f'{client.user} is back online')
     await client.close()
 
-
-
-# serverIDlist=[]
-# @client.command()
-# async def serverIDs(ctx):
-#     # Defines the array as global
-#     global serverIDlist
-#     # Clears the array's content so there are no repetitions if it's run several times
-#     serverIDlist.clear()  
-    
-#     # Iterates trough the guilds(servers) the bot is in and adds them to the array
-#     for server in client.guilds:
-#         serverIDlist.append(server.id)
-#     # Sends the array with all it's elements (DEBUGGING PURPOSES)
-#     await ctx.send(serverIDlist)
-    
-# @client.command()
-# async def purgeTarget(ctx, targetID:int):
-#     # Checks if the invoker has permissions to delete messages
-#     if not ctx.author.guild_permissions.manage_messages:
-#         await ctx.send("I don't think you have the permissions to delete messages ")
-#         return
-
-#     deletedTotal = 0  # Counter for the total deleted messages
- 
-#     member= await client.fetch_user(targetID)
-
-#     # Iterates trough all the servers the bot is in
-#     for server_id in serverIDlist:
-#         server = client.get_guild(server_id)
-#         if server is not None:
-#             try:
-#                 # Iterate through all channels in the server
-#                 for channel in server.text_channels:
-#                     # The purge function will delete all the messages the specified member has sent
-#                     deletedMessages = await channel.purge(limit=None, check=lambda msg: msg.author.id == targetID)
-#                     deletedTotal += len(deletedMessages)
-#             except discord.Forbidden:
-#                 # The bot doesn't have permission to manage messages in this channel, skip it.
-#                 continue
-
-#     # Sends a message with the total deleted messages and the target member
-#     await ctx.send(f'Deleted {deletedTotal} messages from {member} in all servers.')
 
 serverIDlist=[]
 @client.command()
@@ -157,7 +114,4 @@ async def bonk(ctx, targetID:int,*,reason=None):
 async def ping (interaction:discord.Interaction):
     await interaction.response.send_message("PONG")
 
-
 client.run(TOKEN)
-
-# MY MODIFICATION AAAA
